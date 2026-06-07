@@ -36,6 +36,11 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   background: var(--bg-deep);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -79,7 +84,7 @@ body::before {
   position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   opacity: 0.4;
 }
 
@@ -262,20 +267,26 @@ section { position: relative; }
 .nav-toggle { display: none; background: none; border: none; cursor: none; padding: 4px; flex-direction: column; gap: 5px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 1px; transition: var(--transition-fast); }
 
+/* ---- FULL-PAGE BACKGROUND ---- */
+#particleCanvas {
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none;
+}
+.hero-orb {
+  position: fixed; border-radius: 50%;
+  filter: blur(140px); opacity: 0.45; pointer-events: none; z-index: 0;
+}
+.hero-orb-1 { width: 700px; height: 700px; background: #0a0a30; top: -250px; right: -200px; }
+.hero-orb-2 { width: 500px; height: 500px; background: #001428; bottom: -10%; left: -150px; }
+
+/* ---- All sections sit above the background layer ---- */
+section, footer { position: relative; z-index: 1; }
+
 /* ---- HERO ---- */
 .hero {
   min-height: 100vh; display: flex; align-items: center;
-  position: relative; overflow: hidden;
+  position: relative;
 }
-#particleCanvas {
-  position: absolute; inset: 0; z-index: 0;
-}
-.hero-orb {
-  position: absolute; border-radius: 50%;
-  filter: blur(120px); opacity: 0.5; pointer-events: none; z-index: 0;
-}
-.hero-orb-1 { width: 700px; height: 700px; background: #0a0a30; top: -250px; right: -200px; }
-.hero-orb-2 { width: 500px; height: 500px; background: #001428; bottom: -150px; left: -150px; }
 .hero-content {
   position: relative; z-index: 2;
   max-width: 1200px; margin: 0 auto; padding: 120px 24px 80px;

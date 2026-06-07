@@ -16,11 +16,14 @@
 </head>
 <body>
 
+  <!-- Full-page background canvas (stars) -->
+  <canvas id="particleCanvas"></canvas>
+
   <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
-  <!-- Background Orbs -->
+  <!-- Ambient nebula orbs (fixed, visible across all sections) -->
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
 
@@ -54,7 +57,6 @@
 
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="home">
-    <canvas id="particleCanvas"></canvas>
     <div class="hero-glow-track" id="heroGlow"></div>
     <div class="hero-content container">
       <div class="hero-badge reveal" data-delay="0">
