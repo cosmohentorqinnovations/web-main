@@ -52,7 +52,7 @@
         dx: (Math.random() - 0.5) * 0.3,
         dy: (Math.random() - 0.5) * 0.3,
         alpha: Math.random() * 0.6 + 0.1,
-        color: Math.random() < 0.7 ? '255,255,255' : (Math.random() < 0.5 ? '108,99,255' : '6,182,212')
+        color: Math.random() < 0.92 ? '255,255,255' : (Math.random() < 0.5 ? '0,212,255' : '180,180,255')
       };
     }
 
@@ -82,7 +82,7 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(108,99,255,${0.08 * (1 - dist / 100)})`;
+            ctx.strokeStyle = `rgba(255,255,255,${0.05 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
