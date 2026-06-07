@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CosmoHentorq Innovations Pvt. Ltd. — Startup India & Startup TN recognized IT company pioneering AI, Cloud, and Robotics solutions from Chennai, India." />
+  <meta name="keywords" content="CosmoHentorq, JULIE AI, HAK cloud, YAKO robot, IT startup Chennai, Startup India, artificial intelligence" />
+  <meta property="og:title" content="CosmoHentorq Innovations Pvt. Ltd." />
+  <meta property="og:description" content="Create Something Extraordinary — Pioneering AI, Cloud, and Robotics." />
+  <meta property="og:type" content="website" />
+  <title>CosmoHentorq Innovations Pvt. Ltd.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Background Orbs -->
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <div class="logo-icon">
+          <img src="cosmo.jpeg" alt="CosmoHentorq Logo" />
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-text">COSMOHENTORQ</span>
+          <span class="logo-tagline">Be The Tech</span>
+        </div>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home"        class="nav-link active">Home</a>
+        <a href="#about"       class="nav-link">About</a>
+        <a href="#products"    class="nav-link">Products</a>
+        <a href="#recognition" class="nav-link">Recognition</a>
+        <a href="#team"        class="nav-link">Team</a>
+        <a href="#contact"     class="nav-link nav-cta">Contact</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-glow-track" id="heroGlow"></div>
+    <div class="hero-content container">
+      <div class="hero-badge reveal" data-delay="0">
+        <span>Startup India Recognized</span>
+        <span class="badge-dot"></span>
+        <span>Startup TN Recognized</span>
+      </div>
+      <h1 class="hero-title reveal" data-delay="100">
+        Create Something<br>
+        <span class="gradient-text">Extraordinary</span>
+      </h1>
+      <p class="hero-tagline reveal" data-delay="150">Be The Tech</p>
+      <p class="hero-subtitle reveal" data-delay="200">
+        Elevate your digital experience with our innovative solutions designed for the modern world — from intelligent AI to autonomous robotics.
+      </p>
+      <div class="hero-actions reveal" data-delay="300">
+        <a href="#products" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Explore Products
+        </a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Visual -->
+        <div class="about-visual reveal-left">
+          <div class="about-ring about-ring-1"></div>
+          <div class="about-ring about-ring-2"></div>
+          <div class="about-hexagon">
+            <div class="about-hexagon-inner">
+              <span class="big-text">CIPL</span>
+              <span class="small-text">Since 2024</span>
+            </div>
+          </div>
+          <div class="about-dot" style="top:10%; left:50%; transform:translate(-50%,-50%)"></div>
+          <div class="about-dot" style="bottom:15%; right:10%; background:#06b6d4; box-shadow:0 0 10px #06b6d4;"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text reveal-right">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">Who We Are</h2>
+          <p style="color:var(--text-dim); font-size:0.95rem; line-height:1.8;">
+            CosmoHentorq Innovations Private Limited is a recognized IT startup incorporated on <strong style="color:var(--text)">May 4, 2024</strong>, headquartered in Chennai, Tamil Nadu. We are proud to be recognized by both <strong style="color:var(--primary)">Startup India</strong> and <strong style="color:var(--primary)">Startup TN</strong>, building transformative technology across AI, cloud, and robotics.
+          </p>
+          <blockquote class="vision-quote">
+            "CosmoHentorq represents our commitment to expansive thinking and powerful solutions. We navigate the complex IT landscape with expertise, driving transformative change through innovative technology."
+          </blockquote>
+
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-icon cosmo">COSMO</div>
+              <div>
+                <h4>Cosmo — Expansive Vision</h4>
+                <p>Evokes a sense of vastness and universal scope, symbolizing our expansive vision and ability to think beyond conventional boundaries in technology.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon hentor">HENTOR</div>
+              <div>
+                <h4>Hentor — Guiding Expertise</h4>
+                <p>Represents a guiding force, navigating the complex IT landscape with expertise and deep industry knowledge.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon torque">TORQUE</div>
+              <div>
+                <h4>Torque — Driving Force</h4>
+                <p>Embodies the driving force we bring to solving technical challenges with precision and power.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal" data-delay="0">
+          <div class="stat-number" data-count="2" data-suffix="+">0+</div>
+          <div class="stat-label">Years of Innovation</div>
+        </div>
+        <div class="stat-item reveal" data-delay="100">
+          <div class="stat-number" data-count="4" data-suffix="">0</div>
+          <div class="stat-label">Active Products</div>
+        </div>
+        <div class="stat-item reveal" data-delay="200">
+          <div class="stat-number" data-count="3" data-suffix="">0</div>
+          <div class="stat-label">Core Team Members</div>
+        </div>
+        <div class="stat-item reveal" data-delay="300">
+          <div class="stat-number" data-count="2" data-suffix="">0</div>
+          <div class="stat-label">Govt. Recognitions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RECOGNITION ==================== -->
+  <section class="recognition" id="recognition">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <span class="section-label reveal">Officially Recognized</span>
+        <h2 class="section-title reveal" data-delay="100">Government Recognition</h2>
+        <p class="section-subtitle reveal" data-delay="200" style="margin:0 auto;">Recognized by the Government of India and the Government of Tamil Nadu for innovation in IT Services and Product Development.</p>
+      </div>
+      <div class="recognition-grid">
+        <!-- Startup India -->
+        <div class="recognition-card glass-card reveal" data-delay="0">
+          <div class="recog-header">
+            <div class="recog-badge recog-india">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Startup India
+            </div>
+            <span class="recog-cert-no">DIPP166809</span>
+          </div>
+          <div class="recog-cert-wrap">
+            <img src="startup-india-cert.png" alt="Startup India Certificate of Recognition — CosmoHentorq Innovations" class="recog-cert-img" loading="lazy" />
+            <div class="recog-cert-overlay">
+              <a href="https://www.startupindia.gov.in/content/sih/en/profile.Startup.66545bf8e4b0608c0b187d0d.html" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.82rem; padding:10px 20px;">
+                View Profile
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="recog-meta">
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">Sector</span>
+              <span class="recog-meta-value">IT Services &amp; Product Development</span>
+            </div>
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">Issued</span>
+              <span class="recog-meta-value">27 May 2024</span>
+            </div>
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">Valid Until</span>
+              <span class="recog-meta-value">03 May 2034</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Startup TN -->
+        <div class="recognition-card glass-card reveal" data-delay="150">
+          <div class="recog-header">
+            <div class="recog-badge recog-tn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Startup TN
+            </div>
+            <span class="recog-cert-no">STM83197</span>
+          </div>
+          <div class="recog-cert-wrap">
+            <img src="startup-tn-card.jpeg" alt="StartupTN Recognition Card — CosmoHentorq Innovations" class="recog-cert-img" loading="lazy" />
+            <div class="recog-cert-overlay">
+              <a href="https://startuptn.in/startup/profile/U1RBUlRVUA==/MzI5NjQ=" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.82rem; padding:10px 20px;">
+                View Profile
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="recog-meta">
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">Startup ID</span>
+              <span class="recog-meta-value">STM83197</span>
+            </div>
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">Program</span>
+              <span class="recog-meta-value">StartupTN Initiative</span>
+            </div>
+            <div class="recog-meta-item">
+              <span class="recog-meta-label">State</span>
+              <span class="recog-meta-value">Tamil Nadu, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:56px;">
+        <span class="section-label reveal">What We Do</span>
+        <h2 class="section-title reveal" data-delay="100">Leading in Key Domains</h2>
+        <p class="section-subtitle reveal" data-delay="200" style="margin: 0 auto;">
+          Innovating and mastering key domains to drive transformative technology solutions.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card reveal" data-delay="0">
+          <div class="service-icon si-rd">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6c63ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Research &amp; Development</h3>
+          <p>Fostering innovation through deep research and exploration of emerging technologies that shape tomorrow.</p>
+        </div>
+        <div class="service-card glass-card reveal" data-delay="100">
+          <div class="service-icon si-ai">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/></svg>
+          </div>
+          <h3>Artificial Intelligence</h3>
+          <p>Driving progress with advanced AI research and groundbreaking solutions including our flagship JULIE platform.</p>
+        </div>
+        <div class="service-card glass-card reveal" data-delay="200">
+          <div class="service-icon si-ui">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Crafting intuitive user interfaces and seamless user experiences that delight and engage users.</p>
+        </div>
+        <div class="service-card glass-card reveal" data-delay="300">
+          <div class="service-icon si-cloud">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud Computing</h3>
+          <p>Optimizing infrastructure with cutting-edge cloud solutions via our HAK platform — affordable, scalable, powerful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTS ==================== -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="products-header">
+        <span class="section-label reveal">Our Products</span>
+        <h2 class="section-title reveal" data-delay="100">Built for the Future</h2>
+        <p class="section-subtitle reveal" data-delay="200">From intelligent AI assistants to autonomous robotics — we are building the technologies that define tomorrow.</p>
+      </div>
+
+      <!-- Featured: JULIE -->
+      <div class="products-featured reveal">
+        <div class="product-featured-content">
+          <div class="product-featured-label">Ready to Release</div>
+          <h2 class="product-featured-title gradient-text">J.U.L.I.E</h2>
+          <p class="product-featured-full">Json Understandable Language Intelligence Engine</p>
+          <p class="product-featured-desc">
+            A new standard in AI, combining multi-foundational design and limitless training to deliver unmatched intelligence and versatility. JULIE redefines what artificial intelligence can achieve, bringing enterprise-grade reasoning and adaptability to every interaction.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="https://julie.cosmohentorq.com" target="_blank" rel="noopener" class="btn btn-primary">
+              Pre-Book Now
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="btn btn-secondary" style="cursor:default;">AI · Language Model · Multi-modal</span>
+          </div>
+        </div>
+        <div class="product-visual">
+          <div class="product-orb-container">
+            <div class="orbit-ring orbit-ring-1">
+              <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit-ring orbit-ring-2"></div>
+            <div class="product-orb">
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="4" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="4.5" cy="7.5" r="1.5"/><circle cx="19.5" cy="7.5" r="1.5"/><circle cx="4.5" cy="16.5" r="1.5"/><circle cx="19.5" cy="16.5" r="1.5"/><line x1="12" y1="10.5" x2="12" y2="5.5"/><line x1="12" y1="13.5" x2="12" y2="18.5"/><line x1="10.8" y1="11.25" x2="6" y2="8.75"/><line x1="13.2" y1="11.25" x2="18" y2="8.75"/><line x1="10.8" y1="12.75" x2="6" y2="15.25"/><line x1="13.2" y1="12.75" x2="18" y2="15.25"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <!-- HAK -->
+        <div class="product-card glass-card reveal" data-delay="0">
+          <div class="product-card-icon pc-hak">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <h3 class="gradient-text-purple">H.A.K</h3>
+          <p class="product-full">Hub Access Kernel</p>
+          <p>Redefines storage with Teron for businesses and Infryn for homes — offering scalability at just ₹5 per GB. No strings, one-time purchase freedom.</p>
+          <span class="product-tag tag-active">Cloud Services · Active</span>
+        </div>
+
+        <!-- YAKO -->
+        <div class="product-card glass-card reveal" data-delay="150">
+          <div class="product-card-icon pc-yako">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <h3 style="background:linear-gradient(135deg,#a855f7,#f97316); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Y.A.K.O</h3>
+          <p class="product-full">Yet Another Kitchen Operative</p>
+          <p>An autonomous kitchen operative robot revolutionizing culinary efficiency with dynamic levitation, energy harvesting, self-healing materials, and adaptive AI.</p>
+          <span class="product-tag tag-active">Robotics · Active</span>
+        </div>
+
+        <!-- PULSAR -->
+        <div class="product-card glass-card reveal" data-delay="300">
+          <div class="product-card-icon pc-pulsar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 style="background:linear-gradient(135deg,#f97316,#6c63ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">P.U.L.S.A.R</h3>
+          <p class="product-full">Photonic Universal Light-field Spatial Augmented Reality</p>
+          <p>A pioneering augmented reality platform delivering unparalleled visualization and real-time interactivity, transforming physical environments with immersive digital elements.</p>
+          <span class="product-tag tag-coming">Augmented Reality · Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TEAM ==================== -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="team-header">
+        <span class="section-label reveal">Our People</span>
+        <h2 class="section-title reveal" data-delay="100">The Veins of CIPL</h2>
+        <p class="section-subtitle reveal" data-delay="200">Meet the passionate people who are building the future of technology, one innovation at a time.</p>
+      </div>
+
+      <!-- Core Team -->
+      <div class="team-grid">
+        <div class="team-card glass-card reveal" data-delay="0">
+          <div class="team-avatar ta-hm">HM</div>
+          <h3>Hariharan M</h3>
+          <p class="team-role">Founder, CEO &amp; Tech Lead</p>
+          <p>Visionary founder and technical architect of CosmoHentorq. Drives product strategy, engineering, and company direction with hands-on expertise across AI and full-stack systems.</p>
+        </div>
+        <div class="team-card glass-card reveal" data-delay="150">
+          <div class="team-avatar ta-av">AV</div>
+          <h3>Adityaa Venkataraman</h3>
+          <p class="team-role">Core Team Member</p>
+          <p>A key pillar of the CosmoHentorq core team, contributing deep technical expertise and creative problem-solving to the company's flagship initiatives.</p>
+        </div>
+        <div class="team-card glass-card reveal" data-delay="300">
+          <div class="team-avatar ta-ug">UG</div>
+          <h3>Udhayakumar G</h3>
+          <p class="team-role">Core Team Member</p>
+          <p>Integral to the company's development efforts, bringing technical depth and collaborative energy to our growing portfolio of innovative products.</p>
+        </div>
+      </div>
+
+      <!-- Interns -->
+      <div class="interns-section reveal">
+        <p class="interns-title">Alumni &amp; Current Interns</p>
+        <div class="interns-grid">
+          <div class="intern-chip">
+            <div class="intern-chip-avatar">SP</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Selvaa P</span>
+              <span class="intern-chip-year">2024 Intern</span>
+            </div>
+          </div>
+          <div class="intern-chip">
+            <div class="intern-chip-avatar">SM</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Samyukatha M</span>
+              <span class="intern-chip-year">2024 Intern</span>
+            </div>
+          </div>
+          <div class="intern-chip">
+            <div class="intern-chip-avatar">BJ</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Berijl Joseph</span>
+              <span class="intern-chip-year">2024 Intern</span>
+            </div>
+          </div>
+          <div class="intern-chip">
+            <div class="intern-chip-avatar">HK</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Harith Karnan</span>
+              <span class="intern-chip-year">2025 Intern</span>
+            </div>
+          </div>
+          <div class="intern-chip">
+            <div class="intern-chip-avatar">JA</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Janani Anand</span>
+              <span class="intern-chip-year">2025 Intern</span>
+            </div>
+          </div>
+          <div class="intern-chip current">
+            <div class="intern-chip-avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">JS</div>
+            <div class="intern-chip-info">
+              <span class="intern-chip-name">Justina Susan</span>
+              <span class="intern-chip-year">2026 · Current</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG ==================== -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="blog-header">
+        <div>
+          <span class="section-label reveal">Insights</span>
+          <h2 class="section-title reveal" data-delay="100">Our Blog</h2>
+          <p style="color:var(--text-dim); font-size:0.95rem; max-width:480px; line-height:1.7;" class="reveal" data-delay="200">Expert perspectives on technology, business transformation, and innovation in the digital age.</p>
+        </div>
+        <a href="#" class="btn btn-ghost reveal" data-delay="300">
+          View All Articles
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card glass-card reveal" data-delay="0">
+          <div class="blog-card-image blog-image-1">
+            <div class="blog-image-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-content">
+            <p class="blog-date">March 25, 2025</p>
+            <h3>The AI Revolution: Transforming Industries</h3>
+            <p>Explore how artificial intelligence is reshaping business operations, customer experiences, and decision-making processes across multiple sectors.</p>
+            <div class="blog-tags">
+              <span class="blog-tag">Artificial Intelligence</span>
+              <span class="blog-tag">Innovation</span>
+            </div>
+            <a href="#" class="btn btn-ghost">
+              Read More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card glass-card reveal" data-delay="150">
+          <div class="blog-card-image blog-image-2">
+            <div class="blog-image-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-content">
+            <p class="blog-date">March 18, 2025</p>
+            <h3>UI/UX Design Principles for Enhanced User Engagement</h3>
+            <p>Discover the key design principles that can dramatically improve user experience and drive higher engagement rates on your digital platforms.</p>
+            <div class="blog-tags">
+              <span class="blog-tag">UI/UX</span>
+              <span class="blog-tag">User Experience</span>
+            </div>
+            <a href="#" class="btn btn-ghost">
+              Read More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="blog-card glass-card reveal" data-delay="300">
+          <div class="blog-card-image blog-image-3">
+            <div class="blog-image-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+          </div>
+          <div class="blog-card-content">
+            <p class="blog-date">March 10, 2025</p>
+            <h3>Cloud Computing: Scaling Your Business Infrastructure</h3>
+            <p>Learn how cloud computing solutions can provide scalable, secure, and cost-effective infrastructure options for businesses of all sizes.</p>
+            <div class="blog-tags">
+              <span class="blog-tag">Cloud Computing</span>
+              <span class="blog-tag">Scalability</span>
+            </div>
+            <a href="#" class="btn btn-ghost">
+              Read More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-container">
+        <div>
+          <span class="section-label reveal">FAQ</span>
+          <h2 class="section-title reveal" data-delay="100">Frequently Asked Questions</h2>
+          <p style="color:var(--text-dim); font-size:0.9rem; line-height:1.7;" class="reveal" data-delay="200">Got questions? We have got answers. Reach out if you need more.</p>
+          <div style="margin-top:32px;" class="reveal" data-delay="300">
+            <a href="#contact" class="btn btn-primary">Ask Us Directly</a>
+          </div>
+        </div>
+        <div class="faq-list reveal" data-delay="150">
+          <div class="faq-item">
+            <div class="faq-question">
+              What is CosmoHentorq Innovations?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">CosmoHentorq Innovations Private Limited is a Startup India and Startup TN recognized IT company incorporated on May 4, 2024, based in Chennai, Tamil Nadu. We build transformative technology across AI, cloud services, and robotics to empower businesses and individuals.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              What services do you offer?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We specialize in Research &amp; Development, Artificial Intelligence, UI/UX Design, and Cloud Computing. Our products include JULIE (AI platform), HAK (cloud storage), YAKO (kitchen robotics), and PULSAR (augmented reality).</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              How can I contact CosmoHentorq?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">You can reach us via WhatsApp at +91 8754883872, or email us at labs@cosmohentorq.com for research &amp; lab inquiries, or apex@cosmohentorq.com for executive matters. We are located at 250, Malleeswari Nagar, Madambakkam, Chennai, Tamil Nadu.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              What is your approach to project management?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We follow agile methodologies with a strong emphasis on collaborative development, rapid iteration, and transparent communication. Each project has dedicated ownership with regular milestone reviews to ensure quality and timely delivery.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Do you offer custom solutions?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes, absolutely. We design and develop custom technology solutions tailored to your specific business needs — from bespoke AI integrations to custom cloud infrastructure using our HAK platform. Contact us to discuss your requirements.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              What industries do you serve?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We serve a wide range of industries including healthcare, education, food-tech, enterprise software, logistics, and retail — any sector that can benefit from AI, cloud infrastructure, or intelligent automation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:64px;">
+        <span class="section-label reveal">Contact Us</span>
+        <h2 class="section-title reveal" data-delay="100">Get in Touch</h2>
+        <p class="section-subtitle reveal" data-delay="200" style="margin:0 auto;">Have a project in mind? We are ready to bring your vision to life. Contact us directly or fill out the form.</p>
+      </div>
+      <div class="contact-grid">
+        <!-- Info -->
+        <div class="contact-info reveal-left">
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h4>Our Location</h4>
+              <p>250, Malleeswari Nagar, Madambakkam,<br>Chennai, Tamil Nadu, India — 600126</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 1.26h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.29 6.29l1.1-1.1a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/918754883872" target="_blank" rel="noopener">+91 8754883872</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <h4>Email Us</h4>
+              <p>
+                <a href="mailto:labs@cosmohentorq.com">labs@cosmohentorq.com</a><br>
+                <a href="mailto:apex@cosmohentorq.com" style="color:var(--text-dim); font-size:0.85rem;">apex@cosmohentorq.com</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Monday – Friday, 9AM – 5PM IST</p>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://wa.me/918754883872" target="_blank" rel="noopener" class="social-btn" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+            <a href="mailto:labs@cosmohentorq.com" class="social-btn" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="#" class="social-btn" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-btn" title="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a subject</option>
+                <option value="julie">JULIE AI — Pre-Book Now</option>
+                <option value="hak">HAK Cloud — Pricing &amp; Plans</option>
+                <option value="yako">YAKO — Partnership</option>
+                <option value="custom">Custom Solutions</option>
+                <option value="general">General Inquiry</option>
+                <option value="internship">Internship &amp; Careers</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+            </div>
+            <div class="form-success">
+              Message sent successfully. We will get back to you within 24 hours.
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; cursor:pointer;">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="display:inline-flex;">
+            <div class="logo-icon">
+              <img src="cosmo.jpeg" alt="CosmoHentorq Logo" />
+            </div>
+            <div class="logo-text-wrap">
+              <span class="logo-text">COSMOHENTORQ</span>
+              <span class="logo-tagline">Be The Tech</span>
+            </div>
+          </div>
+          <p>CosmoHentorq Innovations Pvt. Ltd. — Pioneering AI, Cloud, and Robotics from Chennai, India. Building the technologies that define tomorrow.</p>
+          <div class="footer-badges">
+            <span class="footer-badge fb-india">Startup India</span>
+            <span class="footer-badge fb-tn">Startup TN</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#recognition">Recognition</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="https://startup.cosmohentorq.com/" target="_blank" rel="noopener">Startup Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="https://julie.cosmohentorq.com" target="_blank" rel="noopener">J.U.L.I.E — AI ↗</a></li>
+            <li><a href="#products">H.A.K — Cloud</a></li>
+            <li><a href="#products">Y.A.K.O — Robotics</a></li>
+            <li><a href="#products">P.U.L.S.A.R — AR</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://wa.me/918754883872">WhatsApp Us</a></li>
+            <li><a href="mailto:labs@cosmohentorq.com">labs@cosmohentorq.com</a></li>
+            <li><a href="mailto:apex@cosmohentorq.com">apex@cosmohentorq.com</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CosmoHentorq Innovations Pvt. Ltd. All Rights Reserved. Incorporated <a href="#about">May 4, 2024</a>.</p>
+        <p><a href="#">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
