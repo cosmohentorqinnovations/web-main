@@ -655,16 +655,16 @@ section { position: relative; }
   margin: 0 auto 20px; position: relative;
 }
 .team-avatar::after {
-  content: ''; position: absolute; inset: -3px;
+  content: ''; position: absolute; inset: -2px;
   border-radius: 50%;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, rgba(0,212,255,0.45), rgba(139,92,246,0.4));
   z-index: -1;
 }
 .ta-hm { background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,212,255,0.3)); }
 .ta-av { background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(255,255,255,0.12)); }
 .ta-ug { background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(0,255,157,0.3)); }
 .team-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-.team-card .team-role { font-size: 0.82rem; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
+.team-card .team-role { font-size: 0.82rem; color: var(--text-dim); font-weight: 500; margin-bottom: 12px; }
 .team-card p { font-size: 0.83rem; color: var(--text-dim); line-height: 1.5; }
 
 .interns-section { margin-top: 48px; }
@@ -682,9 +682,10 @@ section { position: relative; }
 .intern-chip:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
 .intern-chip-avatar {
   width: 28px; height: 28px; border-radius: 50%;
-  background: var(--gradient-primary);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; font-weight: 700; color: #fff;
+  font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,0.7);
   font-family: var(--font-head);
 }
 .intern-chip-info { display: flex; flex-direction: column; gap: 1px; }
