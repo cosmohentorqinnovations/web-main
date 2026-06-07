@@ -239,4 +239,43 @@
     heroTitle.style.backgroundSize = '200% 200%';
   }
 
+  /* ---- LOGO MOUSE FOLLOW + GLOW ---- */
+  const logo = document.querySelector('.about-logo-float');
+  if (logo) {
+    let lx = 0, ly = 0, ltx = 0, lty = 0, logoRaf;
+
+    logo.addEventListener('mouseenter', () => {
+      logo.classList.add('logo-hovered');
+      function track() {
+        ltx += (lx - ltx) * 0.12;
+        lty += (ly - lty) * 0.12;
+        logo.style.transform = `translate(${ltx}px, ${lty}px)`;
+        logoRaf = requestAnimationFrame(track);
+      }
+      track();
+    });
+
+    logo.addEventListener('mousemove', e => {
+      const rect = logo.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      lx = (e.clientX - cx) * 0.22;
+      ly = (e.clientY - cy) * 0.22;
+    });
+
+    logo.addEventListener('mouseleave', () => {
+      logo.classList.remove('logo-hovered');
+      cancelAnimationFrame(logoRaf);
+      lx = 0; ly = 0;
+      function ease() {
+        ltx += (0 - ltx) * 0.1;
+        lty += (0 - lty) * 0.1;
+        logo.style.transform = `translate(${ltx.toFixed(2)}px, ${lty.toFixed(2)}px)`;
+        if (Math.abs(ltx) > 0.1 || Math.abs(lty) > 0.1) requestAnimationFrame(ease);
+        else logo.style.transform = '';
+      }
+      ease();
+    });
+  }
+
 })();
