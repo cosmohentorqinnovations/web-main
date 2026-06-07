@@ -34,7 +34,9 @@
   /* ---- PARTICLE CANVAS ---- */
   const canvas = document.getElementById('particleCanvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
+    const isMobile = window.innerWidth < 768;
+    const COUNT = isMobile ? 55 : 90;
     let w, h, particles = [];
 
     function resize() {
@@ -42,55 +44,45 @@
       h = canvas.height = window.innerHeight;
     }
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
     function createParticle() {
       return {
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * 1.8 + 0.4,
-        dx: (Math.random() - 0.5) * 0.3,
-        dy: (Math.random() - 0.5) * 0.3,
-        alpha: Math.random() * 0.6 + 0.1,
-        color: Math.random() < 0.92 ? '255,255,255' : (Math.random() < 0.5 ? '0,212,255' : '180,180,255')
+        r: Math.random() * 1.2 + 0.2,
+        dx: (Math.random() - 0.5) * 0.18,
+        dy: (Math.random() - 0.5) * 0.18,
+        alpha: Math.random() * 0.55 + 0.1,
+        color: Math.random() < 0.94 ? '255,255,255' : '0,212,255'
       };
     }
 
-    for (let i = 0; i < 160; i++) particles.push(createParticle());
+    for (let i = 0; i < COUNT; i++) particles.push(createParticle());
 
+    let raf;
     function drawParticles() {
       ctx.clearRect(0, 0, w, h);
-      particles.forEach(p => {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
         ctx.fill();
         p.x += p.dx; p.y += p.dy;
         if (p.x < -2) p.x = w + 2;
-        if (p.x > w + 2) p.x = -2;
+        else if (p.x > w + 2) p.x = -2;
         if (p.y < -2) p.y = h + 2;
-        if (p.y > h + 2) p.y = -2;
-      });
-
-      // Draw connecting lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255,255,255,${0.05 * (1 - dist / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
+        else if (p.y > h + 2) p.y = -2;
       }
-      requestAnimationFrame(drawParticles);
+      raf = requestAnimationFrame(drawParticles);
     }
     drawParticles();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else drawParticles();
+    });
   }
 
   /* ---- NAVBAR SCROLL ---- */

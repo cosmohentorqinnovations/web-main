@@ -40,7 +40,6 @@ body {
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
-  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -164,7 +163,7 @@ img { max-width: 100%; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
   transition: var(--transition);
   position: relative; overflow: hidden;
 }
@@ -612,6 +611,7 @@ section, footer { position: relative; z-index: 1; }
   display: flex; align-items: flex-start; justify-content: center;
   position: relative;
   animation: spin 4s linear infinite;
+  will-change: transform;
 }
 .jba-w2 .jba-ring { border-color: rgba(0,212,255,0.4); animation-duration: 6s; animation-direction: reverse; }
 .jba-w3 .jba-ring { border-color: rgba(139,92,246,0.35); animation-duration: 9s; }
@@ -1198,13 +1198,8 @@ section, footer { position: relative; z-index: 1; }
 /* ---- Nav link hover underline glow ---- */
 .nav-link.active::after { box-shadow: 0 0 8px rgba(255,255,255,0.75); }
 
-/* ---- Btn primary neon glow pulse ---- */
-@keyframes btnPulse {
-  0%, 100% { box-shadow: 0 4px 30px rgba(255,255,255,0.14); }
-  50%       { box-shadow: 0 4px 50px rgba(255,255,255,0.22), 0 0 20px rgba(0,212,255,0.3); }
-}
-.btn-primary { animation: btnPulse 3s ease-in-out infinite; }
-.btn-primary:hover { animation: none; box-shadow: 0 8px 50px rgba(255,255,255,0.22); }
+.btn-primary { box-shadow: 0 4px 30px rgba(255,255,255,0.14); }
+.btn-primary:hover { box-shadow: 0 8px 50px rgba(255,255,255,0.22); }
 
 /* ---- Hero tagline glow ---- */
 .hero-tagline { text-shadow: 0 0 40px rgba(255,255,255,0.14); filter: drop-shadow(0 0 20px rgba(0,212,255,0.3)); }
