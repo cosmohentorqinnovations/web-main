@@ -344,10 +344,10 @@ section, footer { position: relative; z-index: 1; }
   position: relative; display: flex; align-items: center; justify-content: center;
 }
 .about-logo-float {
-  width: 260px; height: 260px;
+  width: 240px; height: 240px;
   object-fit: contain;
+  mix-blend-mode: screen;
   animation: float 6s ease-in-out infinite;
-  filter: drop-shadow(0 0 32px rgba(255,255,255,0.18));
 }
 .about-ring {
   position: absolute; border-radius: 50%;
@@ -1161,7 +1161,7 @@ section, footer { position: relative; z-index: 1; }
 .stat-item:hover .stat-number { filter: drop-shadow(0 0 14px rgba(255,255,255,0.22)); }
 
 /* ---- About logo ambient glow ---- */
-.about-logo-float { filter: drop-shadow(0 0 40px rgba(255,255,255,0.22)) drop-shadow(0 0 80px rgba(0,212,255,0.12)); }
+.about-logo-float { filter: drop-shadow(0 0 30px rgba(220,50,50,0.35)); }
 
 /* ---- Team avatar hover glow ---- */
 .team-card:hover .team-avatar {
