@@ -358,12 +358,11 @@ section, footer { position: relative; z-index: 1; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 4px;
 }
-.about-hexagon-inner .big-text {
-  font-family: var(--font-head); font-size: 3rem; font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+.about-hex-logo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.about-hexagon-inner .small-text { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--text-muted); text-transform: uppercase; }
 .about-ring {
   position: absolute; border-radius: 50%;
   border: 1px dashed rgba(255,255,255,0.08);
