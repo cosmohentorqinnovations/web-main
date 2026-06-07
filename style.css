@@ -346,7 +346,6 @@ section, footer { position: relative; z-index: 1; }
 .about-logo-float {
   width: 240px; height: 240px;
   object-fit: contain;
-  mix-blend-mode: screen;
   animation: float 6s ease-in-out infinite;
 }
 .about-ring {
