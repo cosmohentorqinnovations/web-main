@@ -571,31 +571,47 @@ section { position: relative; }
 .product-visual {
   display: flex; align-items: center; justify-content: center; min-height: 300px;
 }
-.product-orb-container {
-  position: relative; width: 260px; height: 260px;
+
+/* ---- JULIE large atom ---- */
+.julie-big-atom {
+  position: relative;
+  width: 240px; height: 240px;
   display: flex; align-items: center; justify-content: center;
+  perspective: 600px;
 }
-.product-orb {
-  width: 180px; height: 180px; border-radius: 50%;
-  background: var(--gradient-primary);
+.jba-nucleus {
+  position: absolute; z-index: 3;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, var(--secondary), var(--primary));
+  box-shadow: 0 0 24px var(--primary), 0 0 48px rgba(108,99,255,0.5), 0 0 80px rgba(6,182,212,0.3);
+  animation: nucleusPulse 2s ease-in-out infinite;
+}
+.jba-wrap {
+  position: absolute;
+  width: 200px; height: 200px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 5rem; box-shadow: 0 0 80px rgba(108,99,255,0.4);
-  animation: float 4s ease-in-out infinite;
-  position: relative; z-index: 1;
+  transform-style: preserve-3d;
 }
-.orbit-ring {
-  position: absolute; border-radius: 50%;
-  border: 1px solid rgba(108,99,255,0.25);
-  animation: spin 8s linear infinite;
+.jba-w1 { transform: rotateX(0deg); }
+.jba-w2 { transform: rotateX(65deg); }
+.jba-w3 { transform: rotateY(65deg); }
+.jba-ring {
+  width: 100%; height: 100%; border-radius: 50%;
+  border: 1.5px solid rgba(108,99,255,0.4);
+  display: flex; align-items: flex-start; justify-content: center;
+  position: relative;
+  animation: spin 4s linear infinite;
 }
-.orbit-ring-1 { width: 220px; height: 220px; }
-.orbit-ring-2 { width: 260px; height: 260px; animation-duration: 12s; animation-direction: reverse; }
-.orbit-dot {
-  position: absolute; width: 10px; height: 10px;
-  border-radius: 50%; background: var(--primary);
-  box-shadow: 0 0 12px var(--primary);
-  top: -5px; left: 50%; transform: translateX(-50%);
+.jba-w2 .jba-ring { border-color: rgba(6,182,212,0.4); animation-duration: 6s; animation-direction: reverse; }
+.jba-w3 .jba-ring { border-color: rgba(168,85,247,0.35); animation-duration: 9s; }
+.jba-electron {
+  position: absolute; top: -6px; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
 }
+.jba-e1 { background: var(--primary);   box-shadow: 0 0 10px var(--primary),  0 0 22px rgba(108,99,255,0.7); }
+.jba-e2 { background: var(--secondary); box-shadow: 0 0 10px var(--secondary), 0 0 22px rgba(6,182,212,0.7); }
+.jba-e3 { background: var(--accent);    box-shadow: 0 0 10px var(--accent),    0 0 22px rgba(168,85,247,0.7); }
 
 .products-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
@@ -847,7 +863,6 @@ section { position: relative; }
 }
 .service-icon { font-size: 0; }
 .product-card-icon { font-size: 0; }
-.product-orb svg { display: block; }
 .contact-item-icon { font-size: 0; }
 .social-btn { font-size: 0; }
 
@@ -1021,19 +1036,8 @@ section { position: relative; }
 }
 .products-featured { animation: borderCycle 8s ease-in-out infinite; }
 
-/* ---- JULIE orb dual glow ---- */
-@keyframes orbGlow {
-  0%, 100% { box-shadow: 0 0 80px rgba(108,99,255,0.45); }
-  50%       { box-shadow: 0 0 130px rgba(6,182,212,0.55), 0 0 60px rgba(108,99,255,0.5); }
-}
-.product-orb { animation: float 4s ease-in-out infinite, orbGlow 3.5s ease-in-out infinite; }
-
-/* ---- Orbit dot trail ---- */
-@keyframes trailGlow {
-  0%, 100% { box-shadow: 0 0 8px var(--primary), 0 0 20px var(--primary); }
-  50%       { box-shadow: 0 0 16px var(--secondary), 0 0 40px var(--secondary); }
-}
-.orbit-dot { animation: trailGlow 3s ease-in-out infinite; }
+/* ---- JULIE big atom nucleus ambient glow ---- */
+.jba-nucleus { animation: nucleusPulse 2s ease-in-out infinite; }
 
 /* ---- Gradient text glow pulse (safe — no background-position animation) ---- */
 @keyframes textGlow {
