@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#000000"/>
+<title>LLMOPS.LIVE — HAWAI v1.0 | Cosmohentorq</title>
+<meta name="description" content="HAWAI v1.0 — The first truly sovereign AI model. No APIs, no tokens, no Big Tech. Built by Cosmohentorq."/>
+<meta property="og:title" content="HAWAI v1.0"/>
+<meta property="og:description" content="The first truly sovereign AI. No APIs, no tokens, no Big Tech. Powered by Cosmohentorq."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#000000;--s1:#0a0a0a;--s2:#111111;
+  --acc:#ffffff;--gold:#ffffff;--cyan:#00d4ff;--teal:#00ff9d;--red:#ff4d4d;
+  --t1:#f0f0f0;--t2:rgba(255,255,255,.55);--t3:rgba(255,255,255,.28);
+  --b1:rgba(255,255,255,.05);--b2:rgba(255,255,255,.07);--b3:rgba(255,255,255,.03);
+  --r:14px;--gap:12px
+}
+html{scroll-behavior:smooth}
+body{
+  background:#000000;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  color:var(--t1);font-family:'Inter','DM Sans',system-ui,sans-serif;
+  min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.4
+}
+
+/* ── CURSOR ── */
+.cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
+.cursor-follower{position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid rgba(255,255,255,.18);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+.cursor.hover{width:20px;height:20px}
+.cursor-follower.hover{width:56px;height:56px;border-color:rgba(255,255,255,.45)}
+@media(max-width:768px){.cursor,.cursor-follower{display:none}body{cursor:auto}}
+
+/* ── CANVAS ── */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── ANNOUNCEMENT BAR ── */
+.ann-bar{position:relative;z-index:10;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.03),rgba(255,255,255,.05));border-bottom:0.5px solid rgba(255,255,255,.09);padding:9px 20px;text-align:center;font-size:12px;font-weight:600;letter-spacing:.6px;color:#fff;text-shadow:0 0 12px rgba(255,255,255,.4)}
+.ann-bar span{opacity:.4;margin:0 10px}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;padding:0 32px;height:56px;background:rgba(0,0,0,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:0.5px solid var(--b2);display:flex;align-items:center;gap:10px}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.nav-logo-img{height:28px;width:auto;object-fit:contain;flex-shrink:0}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1}
+.nav-brand-main{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px}
+.nav-brand-sub{font-size:9.5px;color:var(--t3);letter-spacing:1.2px;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;gap:2px}
+.nav-link{font-size:12px;color:var(--t2);padding:6px 12px;border-radius:20px;border:0.5px solid transparent;text-decoration:none;transition:.2s;white-space:nowrap}
+.nav-link:hover{border-color:var(--b2);color:var(--t1)}
+.nav-cta{font-size:12px;font-weight:700;color:#000;background:#fff;padding:7px 16px;border-radius:20px;text-decoration:none;transition:.2s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{filter:brightness(.92);transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:4px;padding:8px;cursor:pointer;border:none;background:none;margin-left:4px}
+.nav-burger span{display:block;width:20px;height:1.5px;background:var(--t2);transition:.3s;border-radius:2px}
+.nav-burger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(0,0,0,.97);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--b2);padding:16px 20px;flex-direction:column;gap:4px;z-index:99}
+.nav-drawer.open{display:flex}
+.nav-drawer a{font-size:14px;color:var(--t2);padding:12px 14px;border-radius:10px;text-decoration:none;border:0.5px solid transparent;transition:.2s}
+.nav-drawer a:hover{background:var(--b1);color:var(--t1);border-color:var(--b2)}
+.nav-drawer .d-cta{background:#fff;color:#000;font-weight:700;border-color:transparent;margin-top:6px;text-align:center}
+
+/* ── LAYOUT ── */
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 24px;width:100%}
+.wrap-wide{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 24px;width:100%}
+section{padding:80px 0;border-top:0.5px solid var(--b1)}
+section:first-of-type{border-top:none}
+.sec-tag{font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:10px;display:inline-flex;align-items:center;gap:6px;text-shadow:0 0 10px rgba(255,255,255,.3)}
+.sec-tag::before{content:'';display:inline-block;width:16px;height:1px;background:rgba(255,255,255,.4)}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,5vw,42px);font-weight:700;letter-spacing:-.5px;line-height:1.1;margin-bottom:14px;text-shadow:0 0 30px rgba(255,255,255,.12)}
+.sec-sub{font-size:clamp(14px,3.5vw,16px);color:var(--t2);line-height:1.8;max-width:600px;margin-bottom:40px}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:90px 24px 80px;text-align:center;max-width:860px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:32px;background:rgba(255,255,255,.05);border:0.5px solid rgba(255,255,255,.14);padding:6px 16px;border-radius:20px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.9);animation:blink 2s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero-eyebrow{font-size:clamp(11px,2.5vw,13px);font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,10vw,88px);font-weight:800;letter-spacing:-3px;line-height:.96;margin-bottom:8px}
+.hero-title .h-gold{color:#fff;display:block;text-shadow:0 0 40px rgba(255,255,255,.45),0 0 80px rgba(255,255,255,.18)}
+.hero-title .h-white{color:rgba(255,255,255,.7);display:block;text-shadow:0 0 30px rgba(255,255,255,.18)}
+.hero-sub{font-size:clamp(15px,3.5vw,18px);color:var(--t2);line-height:1.8;max-width:560px;margin:0 auto 44px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#000;padding:14px 28px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.2px;transition:.2s;min-height:50px}
+.btn-primary:hover{filter:brightness(.92);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:var(--t1);padding:14px 28px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;border:0.5px solid var(--b2);transition:.2s;min-height:50px}
+.btn-ghost:hover{border-color:rgba(255,255,255,.18);background:var(--b1);transform:translateY(-1px)}
+.hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding-top:32px;border-top:0.5px solid var(--b1)}
+.hstat{text-align:center}
+.hstat-num{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,5vw,30px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;text-shadow:0 0 20px rgba(255,255,255,.35)}
+.hstat-lbl{font-size:11px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase;margin-top:5px}
+
+/* ── MODEL INTRO ── */
+.model-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.model-visual{position:relative;display:flex;align-items:center;justify-content:center;height:320px}
+.orb-wrap{position:relative;width:200px;height:200px}
+.orb-ring{position:absolute;border-radius:50%;border:1px solid transparent}
+.orb-ring-1{inset:0;border-top-color:rgba(255,255,255,.45);border-right-color:rgba(255,255,255,.12);animation:spin 10s linear infinite}
+.orb-ring-2{inset:16px;border-bottom-color:rgba(0,212,255,.5);border-left-color:rgba(0,212,255,.15);animation:spin 16s linear infinite reverse}
+.orb-ring-3{inset:32px;border-top-color:rgba(255,255,255,.2);border-right-color:rgba(255,255,255,.05);animation:spin 22s linear infinite}
+.orb-ring-4{inset:48px;border:0.5px solid rgba(255,255,255,.05);animation:spin 30s linear infinite reverse}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.orb-core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
+.orb-label{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#fff;letter-spacing:-.5px;text-shadow:0 0 20px rgba(255,255,255,.6)}
+.orb-ver{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase}
+.orb-pulse{position:absolute;inset:-24px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
+.orb-dot{position:absolute;border-radius:50%;top:50%;left:50%;transform-origin:0 0}
+.od1{width:6px;height:6px;background:#fff;margin:-3px 0 0 -3px;animation:orbd 7s linear infinite;box-shadow:0 0 8px rgba(255,255,255,.8)}
+.od2{width:5px;height:5px;background:var(--cyan);margin:-2.5px 0 0 -2.5px;animation:orbd 11s linear infinite reverse;animation-delay:-4s;box-shadow:0 0 6px var(--cyan)}
+@keyframes orbd{0%{transform:rotate(0deg) translateX(96px)}100%{transform:rotate(360deg) translateX(96px)}}
+.model-info{display:flex;flex-direction:column;gap:20px}
+.model-info h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,5vw,36px);font-weight:800;letter-spacing:-.5px;line-height:1.1;text-shadow:0 0 20px rgba(255,255,255,.12)}
+.model-info h2 em{font-style:normal;color:#fff;text-shadow:0 0 25px rgba(255,255,255,.35)}
+.model-info p{font-size:15px;color:var(--t2);line-height:1.85}
+.model-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:11.5px;font-weight:600;border:0.5px solid}
+.pill-gold{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14);color:#fff}
+.pill-cyan{background:rgba(0,212,255,.06);border-color:rgba(0,212,255,.2);color:var(--cyan)}
+.pill-green{background:rgba(0,255,157,.06);border-color:rgba(0,255,157,.2);color:var(--teal)}
+
+/* ── COMPARISON TABLE ── */
+.table-wrap{overflow-x:auto;border-radius:16px;border:0.5px solid var(--b2);background:var(--s1)}
+table{width:100%;border-collapse:collapse;min-width:680px}
+thead tr{background:rgba(255,255,255,.03);border-bottom:0.5px solid rgba(255,255,255,.1)}
+thead th{padding:16px 18px;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t3);text-align:left}
+thead th:first-child{color:var(--t2)}
+thead th.col-hawai{color:#fff;font-size:12.5px;letter-spacing:.5px;text-shadow:0 0 12px rgba(255,255,255,.35)}
+tbody tr{border-bottom:0.5px solid var(--b1);transition:.2s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(255,255,255,.02)}
+td{padding:14px 18px;font-size:13px;color:var(--t2);vertical-align:middle}
+td:first-child{font-weight:600;color:var(--t1);font-size:13.5px}
+td.col-hawai{background:rgba(255,255,255,.02)}
+.chk{color:var(--teal);font-weight:700;font-size:14px}
+.cross{color:var(--red);font-weight:700;font-size:14px}
+.partial{color:rgba(255,255,255,.55);font-size:12px;font-weight:600}
+.best{color:#fff;font-weight:700;text-shadow:0 0 8px rgba(255,255,255,.25)}
+.table-note{font-size:11.5px;color:var(--t3);margin-top:12px;text-align:right;font-style:italic}
+
+/* ── ADVANTAGE CARDS ── */
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap)}
+.adv-card{background:var(--s1);border:0.5px solid var(--b2);border-radius:var(--r);padding:24px;transition:.25s;opacity:0;transform:translateY(20px)}
+.adv-card.vis{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+.adv-card:hover{border-color:rgba(255,255,255,.14);background:var(--s2)}
+@media(hover:hover){.adv-card:hover{transform:translateY(-3px)}}
+.adv-card h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px;text-shadow:0 0 12px rgba(255,255,255,.2)}
+.adv-card p{font-size:13px;color:var(--t2);line-height:1.7}
+
+/* ── JULIE SECTION ── */
+.julie-box{background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,rgba(0,212,255,.03) 100%);border:0.5px solid rgba(255,255,255,.09);border-radius:20px;padding:48px;display:flex;gap:40px;align-items:center}
+.julie-logo{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:900;letter-spacing:-.5px;color:#fff;text-shadow:0 0 40px rgba(255,255,255,.2);flex-shrink:0}
+.julie-logo span{color:var(--cyan)}
+.julie-content{flex:1}
+.julie-content h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,4vw,28px);font-weight:700;margin-bottom:12px}
+.julie-content p{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:20px}
+.julie-feats{display:flex;flex-direction:column;gap:8px}
+.jfeat{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--t1)}
+.jfeat::before{content:'→';color:#fff;flex-shrink:0;margin-top:1px;font-weight:700}
+
+/* ── OWNERSHIP STRIP ── */
+.own-strip{background:rgba(255,255,255,.03);border:0.5px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.own-brand{display:flex;align-items:center;gap:12px}
+.own-logo-img{height:36px;width:auto;object-fit:contain;flex-shrink:0}
+.own-text p{font-size:12px;color:var(--t3);letter-spacing:.5px;text-transform:uppercase}
+.own-text strong{font-size:14px;font-weight:700;color:var(--t1)}
+.own-link{font-size:13px;font-weight:600;color:#fff;text-decoration:none;border:0.5px solid rgba(255,255,255,.16);padding:8px 16px;border-radius:8px;transition:.2s;white-space:nowrap}
+.own-link:hover{background:rgba(255,255,255,.06)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;padding:48px 24px 40px;border-top:0.5px solid var(--b1);text-align:center}
+.footer-logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;text-decoration:none}
+.footer-logo-img{height:30px;width:auto;object-fit:contain}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.footer-links a{font-size:12px;color:var(--t3);text-decoration:none;transition:.2s;padding:4px 0}
+.footer-links a:hover{color:var(--t1)}
+footer p{font-size:11.5px;color:var(--t3);letter-spacing:.3px;line-height:2}
+footer p strong{color:var(--t2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  nav{padding:0 20px}
+  .wrap,.wrap-wide{padding:0 16px}
+  section{padding:60px 0}
+  .model-intro{grid-template-columns:1fr;gap:32px}
+  .model-visual{height:220px}
+  .orb-wrap{width:160px;height:160px}
+  @keyframes orbd{0%{transform:rotate(0deg) translateX(76px)}100%{transform:rotate(360deg) translateX(76px)}}
+  .julie-box{flex-direction:column;gap:24px;padding:28px}
+  .julie-logo{font-size:36px}
+  .hero-stats{gap:28px}
+  .own-strip{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .hero{padding:60px 16px 60px}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  .adv-grid{grid-template-columns:1fr}
+  section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+<canvas id="stars"></canvas>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar">
+  HAWAI v1.0 is here <span>·</span> India's first sovereign AI model <span>·</span> Launching 15 August 2026
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="logo-white.png" class="nav-logo-img" alt="Cosmohentorq"/>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">LLMOPS.LIVE</span>
+      <span class="nav-brand-sub">by Cosmohentorq</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#model">HAWAI Model</a>
+    <a class="nav-link" href="#compare">Compare</a>
+    <a class="nav-link" href="#julie">J.U.L.I.E</a>
+    <a class="nav-link" href="#about">About</a>
+  </div>
+  <a class="nav-cta" href="https://julie.cosmohentorq.com" target="_blank" rel="noopener">Pre-book J.U.L.I.E →</a>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="drawer">
+  <a href="#model" onclick="closeMenu()">HAWAI Model</a>
+  <a href="#compare" onclick="closeMenu()">Compare</a>
+  <a href="#julie" onclick="closeMenu()">J.U.L.I.E</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="https://julie.cosmohentorq.com" target="_blank" rel="noopener" class="d-cta" onclick="closeMenu()">Pre-book J.U.L.I.E →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="badge-dot"></span>HAWAI v1.0 — Now Announced</div>
+  <div class="hero-eyebrow">Cosmohentorq Presents</div>
+  <h1 class="hero-title">
+    <span class="h-gold">HAWAI</span>
+    <span class="h-white">v1.0</span>
+  </h1>
+  <p class="hero-sub">India's first fully sovereign AI model. No API keys. No per-token bills. No Big Tech fingerprints. Built from the ground up by Cosmohentorq to give the world AI it truly owns.</p>
+  <div class="hero-btns">
+    <a href="#model" class="btn-primary">Explore HAWAI v1.0 ↓</a>
+    <a href="#compare" class="btn-ghost">See how we compare</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num">0</div>
+      <div class="hstat-lbl">API Dependencies</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">&#8377;0</div>
+      <div class="hstat-lbl">Monthly Token Bill</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">100%</div>
+      <div class="hstat-lbl">Data Ownership</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">15 Aug</div>
+      <div class="hstat-lbl">Launch Date 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODEL INTRO -->
+<div class="wrap">
+  <section id="model">
+    <div class="sec-tag">The Model</div>
+    <div class="model-intro">
+      <div class="model-visual">
+        <div class="orb-wrap">
+          <div class="orb-ring orb-ring-1"></div>
+          <div class="orb-ring orb-ring-2"></div>
+          <div class="orb-ring orb-ring-3"></div>
+          <div class="orb-ring orb-ring-4"></div>
+          <div class="orb-dot od1"></div>
+          <div class="orb-dot od2"></div>
+          <div class="orb-pulse"></div>
+          <div class="orb-core">
+            <div class="orb-label">HAWAI</div>
+            <div class="orb-ver">v1.0</div>
+          </div>
+        </div>
+      </div>
+      <div class="model-info">
+        <h2>Not just a model.<br/><em>A declaration of independence.</em></h2>
+        <p>HAWAI v1.0 is the foundation model powering J.U.L.I.E — Cosmohentorq's sovereign AI engine. Designed entirely without reliance on OpenAI, Anthropic, or Google infrastructure. Every inference, every response, every conversation stays entirely within your control.</p>
+        <p>Built for India. Built for the world. Built for people who refuse to hand their intelligence to a Big Tech pipeline.</p>
+        <div class="model-pills">
+          <span class="pill pill-gold">Zero API Dependency</span>
+          <span class="pill pill-cyan">Local Inference</span>
+          <span class="pill pill-green">Tamil &amp; Multilingual</span>
+          <span class="pill pill-gold">Voice Native</span>
+          <span class="pill pill-cyan">Offline Capable</span>
+          <span class="pill pill-green">Custom Fine-Tuning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="wrap-wide">
+  <section id="compare">
+    <div class="sec-tag">Head to Head</div>
+    <h2 class="sec-title">HAWAI vs the world.</h2>
+    <p class="sec-sub">We put HAWAI v1.0 next to Claude, ChatGPT, and Gemini. The difference is not subtle.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-hawai">HAWAI v1.0</th>
+            <th>Claude 3.5</th>
+            <th>ChatGPT / GPT-4o</th>
+            <th>Gemini 1.5 Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>API Dependency</td>
+            <td class="col-hawai"><span class="best">None — Zero</span></td>
+            <td><span class="cross">&#x2717;</span> Anthropic API</td>
+            <td><span class="cross">&#x2717;</span> OpenAI API</td>
+            <td><span class="cross">&#x2717;</span> Google API</td>
+          </tr>
+          <tr>
+            <td>Your Data Privacy</td>
+            <td class="col-hawai"><span class="best">100% Local — Never leaves you</span></td>
+            <td><span class="cross">&#x2717;</span> Sent to Anthropic</td>
+            <td><span class="cross">&#x2717;</span> Sent to OpenAI</td>
+            <td><span class="cross">&#x2717;</span> Sent to Google</td>
+          </tr>
+          <tr>
+            <td>Billing Model</td>
+            <td class="col-hawai"><span class="best">One-time setup — &#8377;0/month after</span></td>
+            <td><span class="cross">&#x2717;</span> $20–$200/month</td>
+            <td><span class="cross">&#x2717;</span> $20–$200/month</td>
+            <td><span class="cross">&#x2717;</span> $20–$100/month</td>
+          </tr>
+          <tr>
+            <td>Local / On-Prem Deployment</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Full — runs on your hardware</span></td>
+            <td><span class="cross">&#x2717;</span> Cloud only</td>
+            <td><span class="cross">&#x2717;</span> Cloud only</td>
+            <td><span class="cross">&#x2717;</span> Cloud only</td>
+          </tr>
+          <tr>
+            <td>Works Offline</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Fully offline capable</span></td>
+            <td><span class="cross">&#x2717;</span> Requires internet</td>
+            <td><span class="cross">&#x2717;</span> Requires internet</td>
+            <td><span class="cross">&#x2717;</span> Requires internet</td>
+          </tr>
+          <tr>
+            <td>Big Tech Dependency</td>
+            <td class="col-hawai"><span class="best">None whatsoever</span></td>
+            <td><span class="cross">&#x2717;</span> Anthropic (Amazon-backed)</td>
+            <td><span class="cross">&#x2717;</span> Microsoft / OpenAI</td>
+            <td><span class="cross">&#x2717;</span> Google / Alphabet</td>
+          </tr>
+          <tr>
+            <td>Indian Language Support</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Native Tamil, Tanglish, Hindi-EN</span></td>
+            <td><span class="partial">— Basic</span></td>
+            <td><span class="partial">— Basic</span></td>
+            <td><span class="partial">— Partial</span></td>
+          </tr>
+          <tr>
+            <td>Voice — Real-time</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Native real-time voice</span></td>
+            <td><span class="partial">— Limited (Claude.ai only)</span></td>
+            <td><span class="partial">— GPT-4o Voice Mode</span></td>
+            <td><span class="partial">— Limited</span></td>
+          </tr>
+          <tr>
+            <td>Custom Fine-Tuning</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Full — trained on your data</span></td>
+            <td><span class="cross">&#x2717;</span> Not available</td>
+            <td><span class="partial">— Limited &amp; expensive</span></td>
+            <td><span class="cross">&#x2717;</span> Not available</td>
+          </tr>
+          <tr>
+            <td>Data Ownership</td>
+            <td class="col-hawai"><span class="best">You — 100%</span></td>
+            <td><span class="cross">&#x2717;</span> Anthropic</td>
+            <td><span class="cross">&#x2717;</span> OpenAI</td>
+            <td><span class="cross">&#x2717;</span> Google</td>
+          </tr>
+          <tr>
+            <td>Brand &amp; Domain Customisation</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">Full white-label by Cosmohentorq team</span></td>
+            <td><span class="cross">&#x2717;</span> Locked to Anthropic brand</td>
+            <td><span class="cross">&#x2717;</span> Locked to OpenAI brand</td>
+            <td><span class="cross">&#x2717;</span> Locked to Google brand</td>
+          </tr>
+          <tr>
+            <td>Sovereign AI (No foreign jurisdiction)</td>
+            <td class="col-hawai"><span class="chk">&#x2713;</span> <span class="best">India-built, India-owned</span></td>
+            <td><span class="cross">&#x2717;</span> USA (California law)</td>
+            <td><span class="cross">&#x2717;</span> USA (California law)</td>
+            <td><span class="cross">&#x2717;</span> USA (California law)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">HAWAI v1.0 powers J.U.L.I.E — deployed and managed by Cosmohentorq Innovations, Chennai, India.</p>
+  </section>
+</div>
+
+<!-- ADVANTAGE CARDS -->
+<div class="wrap">
+  <section id="advantages">
+    <div class="sec-tag">Why HAWAI Wins</div>
+    <h2 class="sec-title">Six reasons HAWAI v1.0 is different.</h2>
+    <p class="sec-sub">These aren't features. These are fundamental architectural decisions that change what AI ownership means.</p>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <h3>Absolute Privacy</h3>
+        <p>Every conversation, every query, every response — processed entirely on your hardware. No cloud hop. No logs on a foreign server. No one reads your data. Ever.</p>
+      </div>
+      <div class="adv-card">
+        <h3>Zero Ongoing Cost</h3>
+        <p>Claude charges $20/month. GPT-4o charges per token. Gemini meters every call. HAWAI runs continuously after a one-time setup. No subscriptions. No surprises.</p>
+      </div>
+      <div class="adv-card">
+        <h3>Truly Offline</h3>
+        <p>Internet goes down? HAWAI keeps working. Power cut, network failure, restricted zone — HAWAI never drops a response because it doesn't need a remote server to think.</p>
+      </div>
+      <div class="adv-card">
+        <h3>Built for India First</h3>
+        <p>Tamil, Tanglish, Hindi-English code-switching, regional accents — HAWAI understands how Indians actually speak, not how a California engineer imagined we do.</p>
+      </div>
+      <div class="adv-card">
+        <h3>Voice at the Core</h3>
+        <p>HAWAI hears, thinks, and speaks in real time. Voice is not a plugin. It's not a mode. It's how HAWAI was designed from day one — AI beyond the keyboard.</p>
+      </div>
+      <div class="adv-card">
+        <h3>Yours to Shape</h3>
+        <p>The Cosmohentorq technical team fine-tunes HAWAI to your brand, your language, your domain, your workflows. Claude can't do that. GPT-4o won't do that. We do.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- JULIE SECTION -->
+<div class="wrap">
+  <section id="julie">
+    <div class="sec-tag">Powered by HAWAI</div>
+    <h2 class="sec-title">Meet J.U.L.I.E</h2>
+    <p class="sec-sub">The world's first consumer AI product built entirely on a sovereign model. J.U.L.I.E runs on HAWAI v1.0 — yours to own, yours to keep.</p>
+    <div class="julie-box">
+      <div class="julie-logo">J.U.L.I.E<span>.</span></div>
+      <div class="julie-content">
+        <h3>Json Understandable Language Intelligence Engine</h3>
+        <p>J.U.L.I.E is the product face of HAWAI v1.0. Deployed and personalised by the Cosmohentorq team, it runs locally on your infrastructure — zero cloud, zero tokens, zero Big Tech. Your AI assistant that never phones home.</p>
+        <div class="julie-feats">
+          <span class="jfeat">Powered entirely by HAWAI v1.0 — no OpenAI, Anthropic, or Google under the hood</span>
+          <span class="jfeat">Real-time voice interaction in Tamil, English, and Tanglish</span>
+          <span class="jfeat">Custom-trained on your brand, your data, your domain</span>
+          <span class="jfeat">One-time deployment — no subscription, no monthly invoice</span>
+          <span class="jfeat">Launching 15 August 2026 — pre-book your slot now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT / OWNERSHIP -->
+<div class="wrap">
+  <section id="about">
+    <div class="sec-tag">About</div>
+    <h2 class="sec-title">Who's behind HAWAI?</h2>
+    <p class="sec-sub">LLMOPS.LIVE is the operations and research platform for HAWAI v1.0. Every model experiment, every inference optimisation, every deployment benchmark happens here — in public.</p>
+    <div class="own-strip">
+      <div class="own-brand">
+        <img src="logo-white.png" class="own-logo-img" alt="Cosmohentorq"/>
+        <div class="own-text">
+          <p>This site and HAWAI v1.0 are owned and operated by</p>
+          <strong>Cosmohentorq Innovations Pvt. Ltd. — Chennai, India</strong>
+        </div>
+      </div>
+      <a href="https://cosmohentorq.com" target="_blank" rel="noopener" class="own-link">Visit Cosmohentorq →</a>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://cosmohentorq.com" target="_blank" rel="noopener" class="footer-logo">
+    <img src="logo-white.png" class="footer-logo-img" alt="Cosmohentorq"/>
+  </a>
+  <div class="footer-links">
+    <a href="https://cosmohentorq.com">Main Site</a>
+    <a href="https://startup.cosmohentorq.com">StartupTN Pitch</a>
+    <a href="https://julie.cosmohentorq.com">J.U.L.I.E Pre-book</a>
+    <a href="mailto:labs@cosmohentorq.com">Labs</a>
+    <a href="mailto:apex@cosmohentorq.com">Business</a>
+  </div>
+  <p>© 2026 <strong>Cosmohentorq Innovations Pvt. Ltd.</strong> — Chennai, India. All rights reserved.</p>
+  <p>HAWAI, J.U.L.I.E, and LLMOPS.LIVE are products of Cosmohentorq. Not affiliated with OpenAI, Anthropic, or Google.</p>
+  <p style="margin-top:8px;font-size:10.5px;color:rgba(255,255,255,.15)">This site is owned by Cosmohentorq Innovations Pvt. Ltd.</p>
+</footer>
+
+<script>
+// ── CURSOR ─────────────────────────────────────────────────────────────────
+(function(){
+  const cur=document.querySelector('.cursor'),fol=document.querySelector('.cursor-follower');
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}});
+  (function af(){if(fol){fx+=(mx-fx)*.1;fy+=(my-fy)*.1;fol.style.left=fx+'px';fol.style.top=fy+'px';}requestAnimationFrame(af);})();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur?.classList.add('hover');fol?.classList.add('hover');});
+    el.addEventListener('mouseleave',()=>{cur?.classList.remove('hover');fol?.classList.remove('hover');});
+  });
+})();
+
+// ── STARFIELD ──────────────────────────────────────────────────────────────
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');
+let stars=[];
+function resize(){
+  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+  stars=[];
+  const n=Math.floor(canvas.width*canvas.height/5000);
+  for(let i=0;i<n;i++) stars.push({
+    x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+    r:Math.random()*1.1+.2,a:Math.random(),
+    da:(Math.random()*.007+.002)*(Math.random()>.5?1:-1),
+    col:Math.random()>.8?'0,212,255':'221,230,242'
+  });
+}
+function drawStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(const s of stars){
+    s.a+=s.da;
+    if(s.a>=1){s.a=1;s.da=-Math.abs(s.da);}
+    if(s.a<=.06){s.a=.06;s.da=Math.abs(s.da);}
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${s.col},${s.a.toFixed(2)})`;ctx.fill();
+  }
+  requestAnimationFrame(drawStars);
+}
+window.addEventListener('resize',resize);
+resize();drawStars();
+
+// ── NAV BURGER ─────────────────────────────────────────────────────────────
+const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');drawer.classList.toggle('open');});
+function closeMenu(){burger.classList.remove('open');drawer.classList.remove('open');}
+document.addEventListener('click',e=>{if(!burger.contains(e.target)&&!drawer.contains(e.target))closeMenu();});
+
+// ── SCROLL REVEAL ──────────────────────────────────────────────────────────
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:.08});
+document.querySelectorAll('.adv-card').forEach((el,i)=>{
+  el.style.transitionDelay=(i*.06)+'s';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
