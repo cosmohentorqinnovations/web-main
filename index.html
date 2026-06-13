@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="logo-white.png" as="image" />
 </head>
 <body>
 
@@ -95,7 +96,7 @@
         <div class="about-visual reveal-left">
           <div class="about-ring about-ring-1"></div>
           <div class="about-ring about-ring-2"></div>
-          <img src="logo-white.png" alt="CosmoHentorq Logo" class="about-logo-float" />
+          <img src="logo-white.png" alt="CosmoHentorq Logo" class="about-logo-float" loading="eager" decoding="async" />
         </div>
 
         <!-- Text -->
@@ -180,7 +181,7 @@
             <span class="recog-cert-no">DIPP166809</span>
           </div>
           <div class="recog-cert-wrap">
-            <img src="startup-india-cert.png" alt="Startup India Certificate of Recognition — CosmoHentorq Innovations" class="recog-cert-img" loading="lazy" />
+            <img src="startup-india-cert-opt.jpg" alt="Startup India Certificate of Recognition — CosmoHentorq Innovations" class="recog-cert-img" loading="lazy" decoding="async" />
             <div class="recog-cert-overlay">
               <a href="https://www.startupindia.gov.in/content/sih/en/profile.Startup.66545bf8e4b0608c0b187d0d.html" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.82rem; padding:10px 20px;">
                 View Profile
@@ -529,67 +530,36 @@
   <!-- ==================== MOVIES ==================== -->
   <section class="movies" id="movies">
     <div class="container">
-      <div style="text-align:center; margin-bottom:56px;">
+      <div style="text-align:center; margin-bottom:48px;">
         <span class="section-label reveal">CosmoHentorq Films</span>
         <h2 class="section-title reveal" data-delay="100">Original Productions</h2>
         <p class="section-subtitle reveal" data-delay="200" style="margin:0 auto;">Beyond technology, we tell stories. Our first original film is in the making.</p>
       </div>
-
-      <div class="movie-card reveal">
-        <!-- Details -->
-        <div class="movie-details-col">
-          <div class="movie-status-row">
-            <span class="movie-badge badge-shooting">
-              <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
-              Shooting in Progress
-            </span>
-            <span class="movie-badge badge-coming">Coming Soon</span>
-          </div>
-
-          <h2 class="movie-title-text">STOPWATCH</h2>
-
-          <div class="movie-genre-row">
-            <span class="movie-genre-tag">Tamil</span>
-            <span class="movie-genre-tag">Sci-Fi</span>
-            <span class="movie-genre-tag">Short Film</span>
-          </div>
-
-          <div class="movie-meta-row">
-            <span class="movie-meta-item">45 min</span>
-            <span class="movie-meta-dot"></span>
-            <span class="movie-meta-item">2026</span>
-            <span class="movie-meta-dot"></span>
-            <span class="movie-meta-item">CosmoHentorq Production</span>
-          </div>
-
-          <p class="movie-plot">A young man trapped in a time loop uses a mysterious stopwatch to try and prevent the accidental death of his close friend.</p>
-
-          <div class="movie-crew">
-            <div class="movie-crew-item">
-              <span class="movie-crew-label">Director</span>
-              <span class="movie-crew-name">Hariharan Murugan</span>
+      <a href="movies.html" target="_blank" rel="noopener" class="movie-teaser-link reveal" data-delay="150">
+        <div class="movie-teaser glass-card">
+          <div class="movie-teaser-left">
+            <div class="movie-teaser-badges">
+              <span class="movie-badge badge-shooting">
+                <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+                Shooting in Progress
+              </span>
+              <span class="movie-badge badge-coming">Coming Soon</span>
             </div>
-            <div class="movie-crew-item">
-              <span class="movie-crew-label">Writer</span>
-              <span class="movie-crew-name">Hariharan Murugan</span>
+            <h3 class="movie-teaser-title">STOPWATCH</h3>
+            <div class="movie-genre-row" style="margin-bottom:12px;">
+              <span class="movie-genre-tag">Tamil</span>
+              <span class="movie-genre-tag">Sci-Fi</span>
+              <span class="movie-genre-tag">Short Film</span>
+              <span class="movie-genre-tag">2026</span>
             </div>
-            <div class="movie-crew-item">
-              <span class="movie-crew-label">Stars</span>
-              <span class="movie-crew-name">Ganeshvel · Udhayakumar Gopinath · Hariharan Murugan</span>
-            </div>
+            <p class="movie-teaser-plot">A young man trapped in a time loop uses a mysterious stopwatch to prevent the accidental death of his close friend.</p>
           </div>
-
-          <a href="https://www.imdb.com/title/tt40922015/?ref_=ext_shr_lnk" target="_blank" rel="noopener" class="btn-imdb">
-            <svg width="36" height="18" viewBox="0 0 36 18" fill="none"><rect width="36" height="18" rx="3" fill="#F5C518"/><text x="3" y="13" font-family="Arial Black,sans-serif" font-size="9.5" font-weight="900" fill="#000">IMDb</text></svg>
-            View on IMDb
-          </a>
+          <div class="movie-teaser-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>View Full Page</span>
+          </div>
         </div>
-
-        <!-- Poster -->
-        <div class="movie-poster-col">
-          <img src="movies/stopwatch-2.jpeg" alt="Stopwatch film still" loading="lazy" />
-        </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -772,6 +742,6 @@
     </svg>
   </button>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
