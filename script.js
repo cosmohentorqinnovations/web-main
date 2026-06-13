@@ -34,9 +34,10 @@
   /* ---- PARTICLE CANVAS ---- */
   const canvas = document.getElementById('particleCanvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d', { alpha: true });
+    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
     const isMobile = window.innerWidth < 768;
-    const COUNT = isMobile ? 55 : 90;
+    const isLowEnd = navigator.hardwareConcurrency <= 4 || isMobile;
+    const COUNT = isLowEnd ? 30 : 55;
     let w, h, particles = [];
 
     function resize() {
